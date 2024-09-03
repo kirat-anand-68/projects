@@ -1,0 +1,66 @@
+import random
+def deal_card():
+    card=[11,2,3,4,5,6,7,8,9,10,10,10,10]
+    result=random.choice(card)
+    return result
+
+
+def calculate_score(card):
+    """take a list of cards and returns thes sum"""
+    if sum(card)==21 and len(card)==2:
+        return 0
+    if 11 in card and sum(card)>21:
+        card.remove(11)
+        card.append(1)
+    return sum(card)
+
+def compare(user_score,computer_score):
+    if user_score==computer_score:
+        return "Draw"
+    elif computer_score==0:
+        return "Lose"
+    elif user_score==0:
+        return "Win"
+    elif user_score>21:
+        return "Lose"
+    elif computer_score>21:
+        return "Win"
+    elif user_score>computer_score:
+        return "Win"
+    elif computer_score>user_score:
+        return "Lose"
+def play_game():
+    user_card=[]
+    computer_card=[]
+    is_game_over=False
+    for _ in range(2):
+        user_card.append(deal_card())
+        computer_card.append(deal_card())
+        
+
+    while not is_game_over:
+        
+        user_score=calculate_score(user_card)
+        computer_score=calculate_score(computer_card)
+        print(f"Your cards:{user_card} ,current_score:{user_score}")
+        print(f"Computre's first card:{computer_card[0]}")
+        
+        if user_score==0 or computer_score==0 or user_score>21:
+            is_game_over=True
+        else:
+            user_should_deal=input("Type 'Y' to get another card or 'N' to get pass")
+            if user_should_deal=='Y':
+                user_card.append(deal_card())
+            else:
+                is_game_over=True
+    while computer_score !=0 and computer_score < 17:
+        computer_score.append(deal_card())
+        computer_score=calculate_score(computer_score)
+        
+    print(f"Your final hand:{user_card},final_score:{user_score}")
+    print(f"Computer's final hand:{computer_card},final_score:{computer_score }")
+
+    print(compare(user_score,computer_score))
+    
+while input("Do You want to play Again 'Y' or'N': ") =="Y":
+    play_game()
