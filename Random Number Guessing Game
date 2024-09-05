@@ -1,0 +1,29 @@
+
+import random
+
+print("Welcome to the Number Guessing Game!")
+
+while True:
+   
+    numbers = random.randint(1, 10)
+
+    print("I have selected a number between 1 and 10. Try to guess it!")
+
+   
+    while True:
+        user_input = int(input("Enter the number you want to select between 1-10: "))
+
+        if user_input < numbers:
+            print("The number is too low. Try a higher number.")
+        elif user_input > numbers:
+            print("The number is too high. Try a lower number.")
+        else:
+            print("Congratulations! You guessed the number right 😛")
+            break  
+
+   
+    play_again = input("Do you want to play again? Type 'yes' or 'no': ").lower()
+
+    if play_again != "yes":
+        print("Thanks for playing!")
+        break 
