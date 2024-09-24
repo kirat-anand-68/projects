@@ -1,0 +1,35 @@
+def add(n1,n2):
+    return n1+n2
+def sub(n1,n2):
+    return n1-n2
+def mul(n1,n2):
+    return n1*n2
+def div(n1,n2):
+    return n1/n2
+
+operations={
+    "+":add,
+    "-":sub,
+    "*":mul,
+    "/":div,
+}
+def calculator():
+    should_answer=True
+    num1 = float(input("Enter the First Number :"))
+
+    while should_answer:
+        for symbols in operations:
+            print(symbols)
+        operation_symbol=input("Pick any Operation:")
+        num2=float(input("Enter the Second Number:"))
+        
+        answer=operations[operation_symbol](num1,num2)
+        print(f"{num1}{operation_symbol}{num2}={answer}")
+        choice=input("type 'y' to continue with the {answer} or type 'no' to reset the Calculation :")
+        if choice=='y':
+            num1=answer
+        else:
+            should_answer=False
+            print("\n"*20)
+            calculator()
+calculator()
