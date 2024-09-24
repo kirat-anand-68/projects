@@ -1,0 +1,17 @@
+class Library:
+    def __init__(self):
+        self.books=[]
+        self.noBooks=0
+    def add(self,book):
+        self.books.append(book)
+        self.noBooks=len(self.books)
+    def showinfo(self):
+        print(f"The Library has the {self.noBooks} books .The Books are")
+        for book in self.books:
+            print(book)
+l1=Library()
+l1.add("Harry Potter1")
+l1.add("Harry Potter2")
+l1.add("Harry Potter3")
+
+l1.showinfo()
