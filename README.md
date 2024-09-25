@@ -18,8 +18,8 @@ class Bio:
     def __str__(self):
         return (f"{self.name} - {self.education}," "\n"
                 f"Passionate in technologies and fluent in {self.Skills}")
-# Create an instance of the Bio class
+
 my_bio = Bio()
 
-# Print the bio
+
 print(my_bio)
