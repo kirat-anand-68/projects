@@ -1,54 +1,25 @@
+class Bio:
+    def __init__(self):
+        self.name="Kirat"
+        self.education="Guru Nanak Dev Engineering College, Ludhiana"
+        self.Skills={
+            "Programming":["Python","C++","C","Jquery","Javascript","NodeJS"],
+            "FrameWorks":["Bootstrap","Tailwind-CSS"],
+            "Microsoft-Office":["PPT","Excel","Access","OneNote","Word"],
+            }
+        self.Experience=[
+            "Event Management at FMCRS 90.8 MHZ",
+            "Event Management at NSS"
+        ]
+        self.Email="Kiratanand36@gmail.com/Kiratanand68@gmail.com"
+        self.linkedin = "[LinkedIn](https://www.linkedin.com/in/yourusername)"
+        self.email = "your.email@example.com"
 
+    def __str__(self):
+        return (f"{self.name} - {self.education}," "\n"
+                f"Passionate in technologies and fluent in {self.Skills}")
+# Create an instance of the Bio class
+my_bio = Bio()
 
-import random
-
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
-
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
-
-game_images = [rock, paper, scissors]
-
-user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-print(game_images[user_choice])
-
-computer_choice = random.randint(0, 2)
-print("Computer chose:")
-print(game_images[computer_choice])
-
-if user_choice >= 3 or user_choice < 0: 
-  print("You typed an invalid number, you lose!") 
-elif user_choice == 0 and computer_choice == 2:
-  print("You win!")
-elif computer_choice == 0 and user_choice == 2:
-  print("You lose")
-elif computer_choice > user_choice:
-  print("You lose")
-elif user_choice > computer_choice:
-  print("You win!")
-elif computer_choice == user_choice:
-  print("It's a draw")
-
-
+# Print the bio
+print(my_bio)
